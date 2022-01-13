@@ -1,0 +1,15 @@
+.header {
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+.header .title {
+    font-weight: normal;
+    font-family: cursive;
+    font-size: 50px;
+}
+
+.header .subtitle {
+    font-size: large;
+    font-weight: lighter;
+}

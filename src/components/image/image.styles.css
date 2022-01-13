@@ -1,0 +1,29 @@
+.img-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 3%;
+    background-color: white;
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+
+.img-container .image {
+    border-radius: 25px 25px 0 0;
+}
+
+.img-container .title {
+    margin-top: 20px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.img-container .date {
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin: 0 3%;
+}
+
+.img-container .explanation {
+    font-family: "Times New Roman", Times, serif;
+    margin: 25px 3%;
+    line-height: 1.5;
+}
