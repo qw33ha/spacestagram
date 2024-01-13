@@ -1,0 +1,22 @@
+name: Lint Docs
+on:
+  pull_request:
+    branches:
+      - main
+      - test-me-*
+
+jobs:
+  latex_indent:
+    name: 🧽 Lint LaTeX
+    runs-on: ubuntu-latest
+    container: ghcr.io/cmhughes/latexindent.pl:latest
+    steps:
+      - name: 🛎 Checkout
+        uses: actions/checkout@v3
+
+      - name: 🧽 Linting...
+        run: |
+          latexindent -silent -local -modifylinebreaks -check docs/*.tex
+          latexindent -silent -local -modifylinebreaks -check docs/**/*.tex
+          latexindent -silent -local -modifylinebreaks -check docs/**/**/*.tex
+          latexindent -silent -local -modifylinebreaks -check docs/**/**/**/*.tex
