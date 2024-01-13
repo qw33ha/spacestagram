@@ -1,4 +1,4 @@
-name: Format check on push
+name: Code Linter
 on:
   push:
     branches:
@@ -7,23 +7,26 @@ on:
     branches:
       - main
 jobs:
-  dotnet-format:
+  build:
+    name: Lint
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: read
+      # To report GitHub Actions status checks
+      statuses: write
+
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Add dotnet-format problem matcher
-        uses: xt0rted/dotnet-format-problem-matcher@v1
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          only-changed-files: "true"
+          workspace: src/CampusConnections
+          fetch-depth: 0
 
-      - name: Restore dotnet tools
-        uses: xt0rted/dotnet-tool-restore@v1
-        with:
-          only-changed-files: "true"
-
-      - name: Run dotnet format
-        uses: xt0rted/dotnet-format@v1
-        with:
-          only-changed-files: "true"
+      - name: Super-linter
+        uses: super-linter/super-linter@v5.7.2  # x-release-please-version
+        env:
+          DEFAULT_BRANCH: main
+          # To report GitHub Actions status checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
