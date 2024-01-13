@@ -16,7 +16,6 @@ jobs:
 
       - name: 🧽 Linting...
         run: |
-          # latexindent -silent -local -modifylinebreaks -check docs/*.tex
           latexindent -silent -local -modifylinebreaks -check docs/**/*.tex
           latexindent -silent -local -modifylinebreaks -check docs/**/**/*.tex
           latexindent -silent -local -modifylinebreaks -check docs/**/**/**/*.tex
