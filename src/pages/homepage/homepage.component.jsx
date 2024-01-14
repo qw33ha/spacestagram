@@ -22,7 +22,7 @@ class Homepage extends React.Component {
             .then(json => this.setState({images: json}))
             )
         } catch(error) {
-            console.log(error);
+          console.log(error);
         }
     }
 
