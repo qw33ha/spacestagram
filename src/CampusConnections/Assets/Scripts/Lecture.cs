@@ -13,6 +13,6 @@ public class Lecture
         this.instructor = instructor;
         this.time = time;
         this.location = location;
-      this.description = '';
+        this.description = '';
     }
 }
